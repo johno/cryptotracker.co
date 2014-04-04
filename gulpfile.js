@@ -65,10 +65,10 @@ gulp.task('reload-html', function() {
 */
 
 gulp.task('default', function(){
-  gulp.run('pre-process', 'csslint');
+  gulp.run('pre-process', 'csslint', 'minify-css');
   server.listen(35729, function (err) {
     gulp.watch(['*.html', './sass/*.scss'], function(event) {
-      gulp.run('reload-html','pre-process', 'csslint');
+      gulp.run('reload-html','pre-process', 'csslint', 'minify-css');
     });
   });
 });
