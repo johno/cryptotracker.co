@@ -1,93 +1,18 @@
-# MNML
+# Cryptotracker
 
-View the project page at [http://mn-ml.cc](http://mn-ml.cc "MNML - A light-weight responsive html5 boilerplate.")
+A pretty display for tracking crypto coin prices.
 
-MNML is a starting point for responsive HTML5 SASS projects.
-Focused on mobile readability.
+<https://johnotander.com/cryptotracker>
 
-# Getting started
+# Acknowledgements
 
-* Create a new repo for your project on Github
-* In terminal run
-```bash
-    git clone git@github.com:mrmrs/mnml.git yourNewRepoName
-    cd yourNewRepoName
-    rm -rf .git
-    git init
-    git remote add origin git@github.com:yourUserName/yourNewRepoName.git
-```
-
-* git remote -v will allow you to check that you have changed the remote origin correctly. The output should look like:
-```bash
-    origin git@github.com:yourUserName/yourNewRepoName.git (fetch)
-    origin git@github.com:yourUserName/yourNewRepoName.git (push)
-```
-
-## Dev environment
-To set up a convenient dev environment run this at the root of mnml
-
-```bash
-    npm install .
-    npm install -g gulp
-```
-
-Then run
-
-```
-    gulp
-```
-
-Gulp is a javascript task runner. It compiles sass, lints the compiled css, and sets up a livereload server so you can save your fingers from pressing ⌘+r
-
-* Once you add & commit files you are ready to publish run:
-```bash
-git push -u origin master
-```
-
-# What is it?
-
-Mostly a bare-bones html5 template with some basic sass partials that
-I use to start prototypes with. Also includes automated tasks for
-sass compilation, css linting, css minification, and livereload integration.
-
-## Directory structure
-```
-    mnml/
-        ├── README.md
-        ├── gulpfile.js
-        ├── package.json
-        ├── index.html                (386 bytes)
-        ├── css
-        │   └── i.css                 (2 kb minified - 1.2kb gzipped)
-        └── sass                      CSS source
-            ├── _normalize.scss
-            ├── _grid.scss
-            ├── _type.scss
-            ├── _styles.scss
-            └── i.scss
-```
-
-## Rake tasks
-
-Start sass development - watches the sass folder and updates css/i.css with every file change
-```bash
-rake sass
-```
-
-Start sass - output is minified to css/i.css
-```bash
-rake minify
-```
-
-# Author
-
-[MRMRS](http://mrmrs.cc "Adam Morse - Designer Developer")
+Based on mnml from [MRMRS](http://mrmrs.cc "Adam Morse - Designer Developer")
 
 # License
 
 The MIT License (MIT)
 
-Copyright (c) 2014 @mrmrs
+Copyright (c) 2014 @4lpine
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
