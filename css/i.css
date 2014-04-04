@@ -175,4 +175,8 @@ body, html { height: 100%; }
 
 .hero.olive { background-color: #3D9970; }
 
+.hero.maroon { background-color: #85144B; }
+
+.hero.black { background-color: #111; }
+
 .hero-inner { display: table-cell; vertical-align: middle; }
