@@ -6,7 +6,7 @@ A pretty display for tracking crypto coin prices.
 
 # Acknowledgements
 
-  - Based on mnml from [MRMRS](http://mrmrs.cc "Adam Morse - Designer Developer").
+  - Based on mnml, and uses clrs, from [MRMRS](http://mrmrs.cc "Adam Morse - Designer Developer").
   - Includes a loading svg from [jxnblk](https://github.com/jxnblk/loading).
 
 # License
