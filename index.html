@@ -67,7 +67,7 @@
         <h4>PPC</h4>
       </div>
     </div>
-    
+
     <script type="text/javascript">
       (function($) {
         var btcUrl = 'https://btc-e.com/api/3/ticker/btc_usd';
@@ -78,7 +78,7 @@
           contentType: "application/json",
           dataType: 'jsonp',
           success: function(data) {
-            $('#btc-avg').text('$' + data.btc_usd.avg);
+            $('#btc-avg').text('$' + data.btc_usd.last);
           }
         });
 
@@ -90,7 +90,7 @@
           contentType: "application/json",
           dataType: 'jsonp',
           success: function(data) {
-            $('#ltc-avg').text('$' + data.ltc_usd.avg);
+            $('#ltc-avg').text('$' + data.ltc_usd.last);
           }
         });
 
@@ -102,7 +102,7 @@
           contentType: "application/json",
           dataType: 'jsonp',
           success: function(data) {
-            $('#nmc-avg').text('$' + data.nmc_usd.avg);
+            $('#nmc-avg').text('$' + data.nmc_usd.last);
           }
         });
 
@@ -114,7 +114,7 @@
           contentType: "application/json",
           dataType: 'jsonp',
           success: function(data) {
-            $('#ppc-avg').text('$' + data.ppc_usd.avg);
+            $('#ppc-avg').text('$' + data.ppc_usd.last);
           }
         });
       })(jQuery);
