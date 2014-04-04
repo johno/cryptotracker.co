@@ -72,4 +72,3 @@ gulp.task('default', function(){
     });
   });
 });
-
