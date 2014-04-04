@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>
-      MNML
+      Cryptotracker
     </title>
-    <meta name="author" content="">
-    <meta name="description" content="">
+    <meta name="author" content="John Otander">
+    <meta name="description" content="Track crypto currency prices, in a pretty way.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/i.css">
@@ -51,6 +51,7 @@
             $('#btc-avg').text('$' + data.btc_usd.avg);
           }
         });
+
         var ltcUrl = 'https://btc-e.com/api/3/ticker/ltc_usd';
         $.ajax({
           type: 'GET',
