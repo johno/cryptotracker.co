@@ -2,7 +2,7 @@
   var coins = ['btc', 'ltc', 'nmc', 'ppc'];
 
   coins.forEach(function(coin) {
-    updateCoin(coin)
+    updateCoin(coin);
   });
 })(jQuery);
 

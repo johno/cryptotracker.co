@@ -1,16 +1,17 @@
 
 // Load plugins
 
-var gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    watch = require('gulp-watch'),
-    lr    = require('tiny-lr'),
-    server = lr(),
+var gulp       = require('gulp'),
+    gutil      = require('gulp-util'),
+    watch      = require('gulp-watch'),
+    lr         = require('tiny-lr'),
+    server     = lr(),
     livereload = require('gulp-livereload'),
-    prefix = require('gulp-autoprefixer'),
-    minifyCSS = require('gulp-minify-css'),
-    sass = require('gulp-ruby-sass'),
-    csslint = require('gulp-csslint');
+    prefix     = require('gulp-autoprefixer'),
+    minifyCSS  = require('gulp-minify-css'),
+    sass       = require('gulp-ruby-sass'),
+    csslint    = require('gulp-csslint'),
+    jshint     = require('gulp-jshint');
 
 // Task to minify all css files in the css directory
 
@@ -47,6 +48,12 @@ gulp.task('pre-process', function(){
       }));
 });
 
+gulp.task('jslint', function() {
+  gulp.src('./js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
 gulp.task('reload-html', function() {
   gulp.src('*.html')
     .pipe(watch(function(files) {
@@ -65,7 +72,7 @@ gulp.task('reload-html', function() {
 */
 
 gulp.task('default', function(){
-  gulp.run('pre-process', 'csslint', 'minify-css');
+  gulp.run('pre-process', 'csslint', 'minify-css', 'jslint');
   server.listen(35729, function (err) {
     gulp.watch(['*.html', './sass/*.scss'], function(event) {
       gulp.run('reload-html','pre-process', 'csslint', 'minify-css');
