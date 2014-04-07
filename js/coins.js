@@ -1,10 +1,13 @@
 (function($) {
-  var coins = ['btc', 'ltc', 'nmc', 'ppc'];
+  updateCoins();
+  setInterval(updateCoins, 5000);
+})(jQuery);
 
-  coins.forEach(function(coin) {
+function updateCoins() {
+  ['btc', 'ltc', 'nmc', 'ppc'].forEach(function(coin) {
     updateCoin(coin);
   });
-})(jQuery);
+};
 
 function updateCoin(coin) {
   var baseUrl = 'https://btc-e.com/api/3/ticker/';
@@ -16,7 +19,17 @@ function updateCoin(coin) {
     contentType: "application/json",
     dataType: 'jsonp',
     success: function(data) {
-      $('#' + coin + '-avg').text('$' + data[coin + '_usd'].last.toFixed(2));
+      $('#' + coin + '-avg').fadeOut(function() {
+        $(this).text(coinFromDataAsUSD(coin, data));
+        $(this).fadeIn();
+      })
+      if (coin === 'btc') {
+        document.title = coinFromDataAsUSD(coin, data) + ' | Cryptotracker';
+      }
     }
   });
-}
+};
+
+function coinFromDataAsUSD(coin, data) {
+  return '$' + data[coin + '_usd'].last.toFixed(2);
+};
