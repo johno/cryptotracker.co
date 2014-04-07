@@ -11,21 +11,28 @@ var gulp       = require('gulp'),
     minifyCSS  = require('gulp-minify-css'),
     sass       = require('gulp-ruby-sass'),
     csslint    = require('gulp-csslint'),
-    jshint     = require('gulp-jshint');
+    jshint     = require('gulp-jshint'),
+    uglify     = require('gulp-uglify'),
+    rename     = require('gulp-rename'),
+    concat     = require('gulp-concat');
 
 // Task to minify all css files in the css directory
 
-gulp.task('styles', function(){
+gulp.task('styles', function() {
   gulp.src('./css/*.css')
     .pipe(prefix('last 2 versions'))
     .pipe(minifyCSS({keepSpecialComments: 0}))
     .pipe(gulp.dest('./css/'));
 });
 
+// Task to uglify the js files in the js directory
+gulp.task('uglify', function() {
+});
+
 // Use csslint without box-sizing or compatible vendor prefixes (these
 // don't seem to be kept up to date on what to yell about)
 
-gulp.task('csslint', function(){
+gulp.task('csslint', function() {
   gulp.src('./css/*.css')
     .pipe(csslint({
           'compatible-vendor-prefixes': false,
@@ -38,7 +45,7 @@ gulp.task('csslint', function(){
 
 // Task that compiles scss files down to good old css
 
-gulp.task('pre-process', function(){
+gulp.task('pre-process', function() {
   gulp.src('./sass/i.scss')
       .pipe(watch(function(files) {
         return files.pipe(sass({loadPath: ['./sass/'], style: "compact"}))
@@ -71,7 +78,7 @@ gulp.task('reload-html', function() {
 
 */
 
-gulp.task('default', function(){
+gulp.task('default', function() {
   gulp.run('pre-process', 'csslint', 'jslint');
   server.listen(35729, function (err) {
     gulp.watch(['*.html', './sass/*.scss', './js/*.js'], function(event) {
