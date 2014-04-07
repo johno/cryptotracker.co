@@ -16,7 +16,7 @@ function updateCoin(coin) {
     contentType: "application/json",
     dataType: 'jsonp',
     success: function(data) {
-      $('#' + coin + '-avg').text('$' + data[coin + '_usd'].last);
+      $('#' + coin + '-avg').text('$' + data[coin + '_usd'].last.toFixed(2));
     }
   });
 }
