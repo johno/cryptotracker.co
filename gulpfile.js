@@ -16,15 +16,6 @@ var gulp       = require('gulp'),
     rename     = require('gulp-rename'),
     concat     = require('gulp-concat');
 
-// Task to minify all css files in the css directory
-
-gulp.task('styles', function() {
-  gulp.src('./css/*.css')
-    .pipe(prefix('last 2 versions'))
-    .pipe(minifyCSS({keepSpecialComments: 0}))
-    .pipe(gulp.dest('./css/'));
-});
-
 // Task to uglify the js files in the js directory
 gulp.task('uglify', function() {
 });
@@ -43,13 +34,14 @@ gulp.task('csslint', function() {
     .pipe(csslint.reporter());
 });
 
-// Task that compiles scss files down to good old css
+// Task that compiles scss files down to good old css, then minifies.
 
 gulp.task('pre-process', function() {
   gulp.src('./sass/i.scss')
       .pipe(watch(function(files) {
         return files.pipe(sass({loadPath: ['./sass/'], style: "compact"}))
           .pipe(prefix())
+          .pipe(minifyCSS({keepSpecialComments: 0}))
           .pipe(gulp.dest('./css/'))
           .pipe(livereload(server));
       }));
