@@ -15,12 +15,12 @@ var gulp       = require('gulp'),
 
 // Task to minify all css files in the css directory
 
-gulp.task('minify-css', function(){
+gulp.task('styles', function(){
   gulp.src('./css/*.css')
+    .pipe(prefix('last 2 versions'))
     .pipe(minifyCSS({keepSpecialComments: 0}))
     .pipe(gulp.dest('./css/'));
 });
-
 
 // Use csslint without box-sizing or compatible vendor prefixes (these
 // don't seem to be kept up to date on what to yell about)
@@ -72,10 +72,10 @@ gulp.task('reload-html', function() {
 */
 
 gulp.task('default', function(){
-  gulp.run('pre-process', 'csslint', 'minify-css', 'jslint');
+  gulp.run('pre-process', 'csslint', 'jslint');
   server.listen(35729, function (err) {
-    gulp.watch(['*.html', './sass/*.scss'], function(event) {
-      gulp.run('reload-html','pre-process', 'csslint', 'minify-css');
+    gulp.watch(['*.html', './sass/*.scss', './js/*.js'], function(event) {
+      gulp.run('reload-html','pre-process', 'csslint', 'jslint');
     });
   });
 });

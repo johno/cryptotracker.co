@@ -7,7 +7,7 @@ function updateCoins() {
   ['btc', 'ltc', 'nmc', 'ppc'].forEach(function(coin) {
     updateCoin(coin);
   });
-};
+}
 
 function updateCoin(coin) {
   var baseUrl = 'https://btc-e.com/api/3/ticker/';
@@ -22,14 +22,14 @@ function updateCoin(coin) {
       $('#' + coin + '-avg').fadeOut(function() {
         $(this).text(coinFromDataAsUSD(coin, data));
         $(this).fadeIn();
-      })
+      });
       if (coin === 'btc') {
         document.title = coinFromDataAsUSD(coin, data) + ' | Cryptotracker';
       }
     }
   });
-};
+}
 
 function coinFromDataAsUSD(coin, data) {
   return '$' + data[coin + '_usd'].last.toFixed(2);
-};
+}
