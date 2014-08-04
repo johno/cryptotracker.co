@@ -2,7 +2,7 @@
 
 A pretty display for tracking crypto coin prices.
 
-<https://johnotander.com/cryptotracker>
+<http://cryptotracker.co>
 
 # Acknowledgements
 
